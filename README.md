@@ -6,7 +6,14 @@ Guests receive a unique invitation link, open the form, fill it once, and submit
 ---
 
 ## 🚀 Live Repository
+
 🔗 GitHub Repo: **https://github.com/Rudra-Prajapati1/Wedd-AI-Assignment**
+
+## 🚀 Live Links
+
+🔗 Frontend: **https://wedd-dynamic-form-generator.netlify.app/**
+
+🔗 Backend: **https://wedd-ai-assignment.onrender.com/**
 
 ---
 
@@ -15,65 +22,71 @@ Guests receive a unique invitation link, open the form, fill it once, and submit
 This project implements a **Dynamic Form Builder System** with:
 
 ### 👨‍💼 Admin Features
-- Create custom forms with multiple field types  
-- Add one or multiple guests and generate unique links  
-- View all created forms  
-- View all responses for any form  
-- Automatic cascade delete of form → guest mappings → responses  
-- Copy invitation links to clipboard  
+
+- Create custom forms with multiple field types
+- Add one or multiple guests and generate unique links
+- View all created forms
+- View all responses for any form
+- Automatic cascade delete of form → guest mappings → responses
+- Copy invitation links to clipboard
 
 ### 🙋 Guest Features
-- Access form using a **unique token**  
-- Token auto-validates on page load  
-- Submit responses securely  
-- Prevent duplicate submissions  
-- See a thank-you screen after submitting  
+
+- Access form using a **unique token**
+- Token auto-validates on page load
+- Submit responses securely
+- Prevent duplicate submissions
+- See a thank-you screen after submitting
 
 ---
 
 # ✨ Features Implemented
 
 ### ✅ Core Assignment Features
-- Dynamic form builder  
+
+- Dynamic form builder
 - Supported field types:
-  - text  
-  - textarea  
-  - number  
-  - dropdown  
-  - date  
-  - multiselect (checkbox UI)  
-- Add guest & generate unique token link  
-- Token-based form access  
-- Prevent duplicate submissions  
-- Response dashboard  
-- API validation + error handling  
+  - text
+  - textarea
+  - number
+  - dropdown
+  - date
+  - multiselect (checkbox UI)
+- Add guest & generate unique token link
+- Token-based form access
+- Prevent duplicate submissions
+- Response dashboard
+- API validation + error handling
 
 ### 🎁 Bonus Features
-- Add multiple guests at once → generates multiple unique links  
-- Cascade delete (Form → FormGuest → FormResponse)  
-- Clipboard copy button for all generated links  
-- TailwindCSS UI enhancement  
-- SweetAlert alerts  
-- Clean and optimized form rendering  
+
+- Add multiple guests at once → generates multiple unique links
+- Cascade delete (Form → FormGuest → FormResponse)
+- Clipboard copy button for all generated links
+- TailwindCSS UI enhancement
+- SweetAlert alerts
+- Clean and optimized form rendering
 
 ---
 
 # 🛠 Tech Stack
 
 ### **Backend**
-- Node.js  
-- Express.js  
-- MongoDB  
-- Mongoose  
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
 - Crypto (token generation)
 
 ### **Frontend**
-- React 19  
-- Vite  
-- TailwindCSS v4  
-- React Router  
-- SweetAlert2  
-- Axios  
+
+- React 19
+- Vite
+- TailwindCSS v4
+- React Router
+- SweetAlert2
+- Axios
 
 ---
 
@@ -153,19 +166,24 @@ Frontend will start at:
 
 # 📡 API Endpoints (Required by Assignment)
 
-### 1️⃣ Create Form  
+### 1️⃣ Create Form
+
 **POST** `/api/forms`
 
-### 2️⃣ Add Guest & Generate Token  
+### 2️⃣ Add Guest & Generate Token
+
 **POST** `/api/forms/:formId/guests`
 
-### 3️⃣ Validate Token & Load Form  
+### 3️⃣ Validate Token & Load Form
+
 **GET** `/api/forms/token/:token`
 
-### 4️⃣ Submit Response  
+### 4️⃣ Submit Response
+
 **POST** `/api/forms/:formId/response`
 
-### 5️⃣ Get All Responses for a Form  
+### 5️⃣ Get All Responses for a Form
+
 **GET** `/api/forms/:formId/responses`
 
 ---
@@ -173,17 +191,17 @@ Frontend will start at:
 # 🗄 Database Schemas Overview
 
 ### 🟦 Form
+
 ```json
 {
   "title": "Survey",
   "description": "Event Feedback",
-  "fields": [
-    { "key": "name", "label": "Your Name", "type": "text" }
-  ]
+  "fields": [{ "key": "name", "label": "Your Name", "type": "text" }]
 }
 ```
 
 ### 🟩 Guest
+
 ```json
 {
   "name": "John Doe",
@@ -192,6 +210,7 @@ Frontend will start at:
 ```
 
 ### 🟧 FormGuest
+
 ```json
 {
   "formId": "...",
@@ -202,6 +221,7 @@ Frontend will start at:
 ```
 
 ### 🟥 FormResponse
+
 ```json
 {
   "formId": "...",
