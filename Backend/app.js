@@ -14,6 +14,11 @@ connectDB();
 app.get("/", (req, res) => {
   res.send("WeddAI Backend is Running...");
 });
+
+app.get("/ping", (req, res) => {
+  res.status(200).send("OK");
+});
+
 app.use("/api/forms", formRouter);
 
 app.use((req, res) => {
