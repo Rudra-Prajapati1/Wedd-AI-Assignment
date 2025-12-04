@@ -9,7 +9,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/api": {
-        target: "https://wedd-ai-assignment.onrender.com/",
+        target: "https://wedd-ai-assignment.onrender.com",
         changeOrigin: true,
         secure: false,
       },
