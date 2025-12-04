@@ -18,7 +18,7 @@ const FormList = () => {
       MySwal.fire({
         icon: "error",
         title: "Error Fetching Forms",
-        text: error.message,
+        text: error.response?.data?.message || error.message,
       });
       setLoading(false);
     }

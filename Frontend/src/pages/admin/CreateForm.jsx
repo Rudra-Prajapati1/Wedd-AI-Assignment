@@ -87,7 +87,10 @@ export default function CreateForm() {
       MySwal.fire({
         icon: "error",
         title: "Error",
-        text: "Failed to create form.",
+        text:
+          error.response?.data?.message ||
+          error.message ||
+          "Failed to create form.",
       });
     }
 

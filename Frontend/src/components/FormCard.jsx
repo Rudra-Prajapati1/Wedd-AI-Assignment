@@ -36,7 +36,7 @@ const FormCard = ({ form, onDelete }) => {
       MySwal.fire({
         icon: "error",
         title: "Error",
-        text: error.message,
+        text: error.response?.data?.message || error.message,
       });
     } finally {
       setDeleting(false);

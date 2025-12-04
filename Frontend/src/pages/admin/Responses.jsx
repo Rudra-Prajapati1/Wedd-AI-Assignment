@@ -20,7 +20,7 @@ const Responses = () => {
       MySwal.fire({
         icon: "error",
         title: "Error Fetching Responses",
-        text: error.message,
+        text: error.response?.data?.message || error.message,
       });
     }
   };
@@ -33,7 +33,7 @@ const Responses = () => {
       MySwal.fire({
         icon: "error",
         title: "Error Fetching Form",
-        text: error.message,
+        text: error.response?.data?.message || error.message,
       });
     }
   };

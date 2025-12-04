@@ -70,7 +70,10 @@ const AddGuest = () => {
       MySwal.fire({
         icon: "error",
         title: "Failed",
-        text: error.message ?? "Could not generate links.",
+        text:
+          error.response?.data?.message ||
+          error.message ||
+          "Could not generate links.",
       });
     }
 
