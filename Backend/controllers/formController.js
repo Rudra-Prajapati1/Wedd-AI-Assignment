@@ -66,3 +66,15 @@ export const deleteFormById = async (req, res) => {
     res.status(500).json({ message: "Server error while deleting the form" });
   }
 };
+
+export const getFormBySearch = async (req, res) => {
+  try {
+    const { search } = req.params;
+
+    const forms = await Form.find({ title: { $regex: search, $options: "i" } });
+    res.json(forms);
+  } catch (error) {
+    console.error(error.message);
+    res.stauts(500).json({ message: "Server error while searching the form" });
+  }
+};

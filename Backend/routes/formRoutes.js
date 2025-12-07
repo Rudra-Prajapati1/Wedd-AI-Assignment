@@ -4,6 +4,7 @@ import {
   deleteFormById,
   getAllForms,
   getFormById,
+  getFormBySearch,
 } from "../controllers/formController.js";
 import { addGuestAndGenerateToken } from "../controllers/guestController.js";
 import {
@@ -18,6 +19,7 @@ formRouter.post("/", createForm);
 formRouter.get("/", getAllForms);
 formRouter.get("/:formId", getFormById);
 formRouter.delete("/:formId", deleteFormById);
+formRouter.get("/search/:search", getFormBySearch);
 
 formRouter.post("/:formId/guests", addGuestAndGenerateToken);
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { PlusCircle } from "lucide-react";
+import { PlusCircle, Search } from "lucide-react";
 import api from "../../api/axios";
 import MySwal from "../../utils/swal";
 import FormCard from "../../components/FormCard";
@@ -8,6 +8,25 @@ import FormCard from "../../components/FormCard";
 const FormList = () => {
   const [forms, setForms] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const timeout = setTimeout(async () => {
+      if (!search) {
+        fetchForms();
+        return;
+      }
+      const { data } = await api.get(`/forms/search/${search}`);
+
+      if (data.length > 0) {
+        setForms(data);
+      } else {
+        fetchForms();
+      }
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, [search]);
 
   const fetchForms = async () => {
     try {
@@ -47,6 +66,15 @@ const FormList = () => {
           Create New Form
         </Link>
       </div>
+      <div className="flex gap-2">
+        <input
+          type="search"
+          placeholder="search forms"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="border"
+        />
+      </div>
 
       {loading && (
         <div className="text-center py-10 text-gray-500">Loading forms...</div>
@@ -64,9 +92,10 @@ const FormList = () => {
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {forms.map((form) => (
-          <FormCard key={form._id} form={form} onDelete={handleDelete} />
-        ))}
+        {!loading &&
+          forms.map((form) => (
+            <FormCard key={form._id} form={form} onDelete={handleDelete} />
+          ))}
       </div>
     </div>
   );
